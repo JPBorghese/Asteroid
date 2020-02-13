@@ -1,27 +1,37 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+
+#pragma once
 
 #include "Thing.h"
 
 struct Player {
-	int x;
-	int y;
-
-	float xpos;
-	float ypos;
-
+	float x;
+	float y;
 	float xspd;
 	float yspd;
+	void (*render)(struct Player*);
+	void (*update)(struct Player*);
 
-	void (*render)(struct Thing*);
-	void (*update)(struct Thing*);
-
+	float length;
+	float width;
 	float radius;
-	float angle;	// degrees
+	int angle;		// degrees
+	int angleAccel;
+	float accel;
+	float maxSpeed;
+
+	Color c;
 };
 
 typedef struct Player Player;
 
-void init(Player*, int, int, float, float, float, void (*)(Thing*));
+Player* initPlayer(
+	float x,
+	float y,
+	float radius,
+	float width,
+	float height);
 
-#endif
+
+void renderPlayer(Player*);
+void updatePlayer(Player*);
+

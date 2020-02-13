@@ -1,24 +1,34 @@
 
-#ifndef THING_H
-#define THING_H
+#pragma once
+
+#include <stddef.h>
+
+enum type {
+	THING, 
+	PLAYER, 
+	ENEMY
+};
 
 struct Thing {
-	int x;
-	int y;
-
-	float xpos;
-	float ypos;
+	float x;
+	float y;
 
 	float xspd;
 	float yspd;
 
 	void (*render)(struct Thing*);
-	//void (*update)(struct Thing*);
+	void (*update)(struct Thing*);
 };
 
 typedef struct Thing Thing;
 
-void renderPlayer(struct Thing*);
-//void updatePlayer(Thing*);
+void init(Thing*,
+	float x,
+	float y,
+	float spdx,
+	float spdy,
+	void (*)(Thing*),
+	void (*)(Thing*));
 
-#endif
+void destroy(Thing*);
+

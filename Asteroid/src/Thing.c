@@ -1,12 +1,21 @@
 
-#include <raylib.h>
-#include "Thing.h"
-#include "Player.h"
+#include "include.h"
 
-#define screenWidth 800;
-#define screenHeight 450;
+void init(Thing* a, 
+	float x, float y, 
+	float xspd, float yspd, 
+	void (*rendFunc)(Thing*),
+	void (*updateFunc)(Thing*)){
 
-void renderPlayer(Thing* t) {
-	DrawCircle(t->x, t->y, ((Player*) t)->radius, BLACK);
+	a->x = x;
+	a->y = y;
+	a->xspd = xspd;
+	a->yspd = yspd;
+	a->render = rendFunc;
+	a->update = updateFunc;
+}
+
+void destroy(Thing* t) {
+	free(t);
 }
 
