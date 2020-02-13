@@ -1,3 +1,3 @@
 # Asteroid
 
-*insert discription here*
+My take on the retro game Asteroid
