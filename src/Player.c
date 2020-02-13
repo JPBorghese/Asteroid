@@ -63,7 +63,7 @@ void updatePlayer(Player* p) {
 
 	p->angle %= 360;
 
-	if(IsKeyDown(KEY_SPACE)) {
+	if(IsKeyDown(KEY_W)) {
 
 		float a0 = DEG2RAD * p->angle;
 		float xspd = p->accel * cos(a0);
