@@ -23,7 +23,7 @@ Player* initPlayer(
 	a->c = randomColor();
 	a->angle = 90;
 	a->angleAccel = 3;
-	a->accel = 1;
+	a->accel = .25;
 	a->maxSpeed = 5;
 
 	return a;
@@ -69,31 +69,14 @@ void updatePlayer(Player* p) {
 		float xspd = p->accel * cos(a0);
 		float yspd = p->accel * sin(a0);
 
-		float velAngle = atan(-p->yspd / p->xspd);
-		float angleDiff = velAngle - p->angle;
+		p->xspd += xspd;
+		p->yspd -= yspd;
 
-		if (abs(angleDiff) < 90) {
-			if (sqrt( pow(p->xspd + xspd, 2) + pow(p->yspd + yspd, 2)) > p->maxSpeed) {	// if the next speed is going faster than max
-				float magnitude = p->accel * (1 - cos(a0));	// the magnitude not associated with the current speed direction
+		if (sqrt(pow(p->xspd + xspd, 2) + pow(p->yspd + yspd, 2)) > p->maxSpeed) {	
 
-				float refAngle;
-				if (velAngle > p->angle) {
-
-				}
-				else {
-					
-				}
-				p->xspd += xspd;
-				p->yspd -= yspd;
-			}
-			else {
-				p->xspd += xspd;
-				p->yspd -= yspd;
-			}
-		}
-		else {			// angleDiff >= 90
-			p->xspd += xspd;
-			p->yspd -= yspd;
+			float velAngle = atan2(-p->yspd , p->xspd);
+			p->xspd = p->maxSpeed * cos(velAngle);
+			p->yspd = -p->maxSpeed * sin(velAngle);
 		}
 	}
 
