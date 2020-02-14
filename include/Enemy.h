@@ -27,5 +27,5 @@ Enemy* initEnemy(
 	float spdy,
 	float radius);
 
-void updateEnemy(Enemy*);
 void renderEnemy(Enemy*);
+void updateEnemy(Enemy*);

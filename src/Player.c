@@ -61,7 +61,10 @@ void updatePlayer(Player* p) {
 		p->angle -= p->angleAccel; 
 	}
 
-	p->angle %= 360;
+	if (p->angle > 360)
+		p->angle -= 360;
+	else if (p->angle < 0)
+		p->angle += 360;
 
 	if(IsKeyDown(KEY_W)) {
 

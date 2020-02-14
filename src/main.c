@@ -24,6 +24,15 @@ int main()
 	initThingArray(&objects);
 	addThing(&objects, (Thing*)p);
 
+	Bullet* b = initBullet(
+		0,
+		0,
+		1,
+		1,
+		10);
+	
+	addThing(&objects, (Thing*)b);
+
 	while (!WindowShouldClose())
 	{
 		if (IsKeyDown(KEY_ZERO)) {

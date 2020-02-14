@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 
+// not sure what im gonna use this for
 enum type {
 	THING, 
 	PLAYER, 

@@ -1,8 +1,7 @@
 
 cd bin
-del Enemy.exe
-cd..
-cl raylib/lib/raylib.lib src/*.c /I raylib/include /I include
+del Asteroid.exe
+cd ..
+cl /Fe"bin/Asteroid" raylib/lib/raylib.lib src/*.c /I raylib/include /I include
 move *.obj obj
-move *.exe bin
-"bin/Enemy.exe"
+"bin/Asteroid.exe"

@@ -14,8 +14,8 @@ struct Player {
 	float length;
 	float width;
 	float radius;
-	int angle;		// degrees
-	int angleAccel;
+	float angle;		// degrees
+	float angleAccel;
 	float accel;
 	float maxSpeed;
 

@@ -10,6 +10,7 @@
 #include "Thing.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "Bullet.h"
 #include "ThingArray.h"
 
 #define MONITOR_WIDTH 1920
