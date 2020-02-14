@@ -31,7 +31,7 @@ Player* initPlayer(
 	float width,
 	float height);
 
-
+Color getPlayerColor();
 void renderPlayer(Player*);
 void updatePlayer(Player*);
 

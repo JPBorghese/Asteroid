@@ -20,13 +20,17 @@ Player* initPlayer(
 
 	a->length = l;
 	a->width = w;
-	a->c = randomColor();
+	a->c = getPlayerColor();
 	a->angle = 90;
 	a->angleAccel = 3;
 	a->accel = .25;
 	a->maxSpeed = 5;
 
 	return a;
+}
+
+Color getPlayerColor() {
+	return (Color){96, 191, 140, 255};
 }
 
 void renderPlayer(Player* p) {
@@ -51,22 +55,11 @@ void renderPlayer(Player* p) {
 }
 
 void updatePlayer(Player* p) {
-	bool d = IsKeyDown(KEY_D);
-	bool a = IsKeyDown(KEY_A);
+	Vector2 mousePos = GetMousePosition();
+	double pi = (22.0 / 7.0);
+	p->angle = (atan2(p->x - mousePos.x, p->y - mousePos.y) * (180.0f / pi)) + 90.0f;
 
-	if (a) {
-		p->angle += p->angleAccel; 
-	}
-	if (d) {
-		p->angle -= p->angleAccel; 
-	}
-
-	if (p->angle > 360)
-		p->angle -= 360;
-	else if (p->angle < 0)
-		p->angle += 360;
-
-	if(IsKeyDown(KEY_W)) {
+	if(IsMouseButtonDown(0)) {
 
 		float a0 = DEG2RAD * p->angle;
 		float xspd = p->accel * cos(a0);
