@@ -7,7 +7,7 @@ static int windowHeight = (MONITOR_HEIGHT * 3) / 4;
 
 int main()
 {
-
+	srand(time(NULL));
 	SetConfigFlags(FLAG_VSYNC_HINT);
 	InitWindow(windowWidth, windowHeight, "asdf");
 	SetWindowPosition((MONITOR_WIDTH - windowWidth) / 2, (MONITOR_HEIGHT - windowHeight) / 2);
