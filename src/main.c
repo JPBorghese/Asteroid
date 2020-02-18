@@ -45,8 +45,16 @@ int main()
 
 			addThing(&objects, (Thing*)e);
 		}
-		if (IsKeyPressed(KEY_BACKSPACE)) {
-			removeThing(&objects, objects.array[0]);
+
+		if (IsKeyDown(KEY_SPACE)) {
+			Bullet* b = initBullet(
+				p->x,
+				p->y,
+				p->bulletSpeed * cos(DEG2RAD * p->angle),
+				p->bulletSpeed * -sin(DEG2RAD * p->angle),
+				p->radius / 2);
+
+			addThing(&objects, (Thing*)b);
 		}
 
 		BeginDrawing();

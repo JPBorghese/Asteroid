@@ -18,6 +18,7 @@ struct Player {
 	float angleAccel;
 	float accel;
 	float maxSpeed;
+	float bulletSpeed;
 
 	Color c;
 };

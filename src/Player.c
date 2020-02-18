@@ -20,11 +20,12 @@ Player* initPlayer(
 
 	a->length = l;
 	a->width = w;
-	a->c = randomColor();
+	a->c = WHITE;//randomColor();
 	a->angle = 90;
 	a->angleAccel = 3;
 	a->accel = .25;
 	a->maxSpeed = 5;
+	a->bulletSpeed = 20;
 
 	return a;
 }
