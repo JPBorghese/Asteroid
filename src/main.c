@@ -13,6 +13,15 @@ int main()
 	SetWindowPosition((MONITOR_WIDTH - windowWidth) / 2, (MONITOR_HEIGHT - windowHeight) / 2);
 	SetTargetFPS(60);
 
+	ThingArray objects;			// object array
+	initThingArray(&objects);
+
+	//ThingArray bullets;			// bullet array
+	//initThingArray(&bullets);
+
+	//ThingArray enemys;			// enemy array
+	//initThingArray(&enemys);
+
 	Player* p = initPlayer(
 		windowWidth / 2, 		// x
 		windowHeight / 2, 		// y
@@ -20,18 +29,7 @@ int main()
 		25,						// length
 		15);					// width
 
-	ThingArray objects;
-	initThingArray(&objects);
 	addThing(&objects, (Thing*)p);
-
-	Bullet* b = initBullet(
-		0,
-		0,
-		1,
-		1,
-		10);
-	
-	addThing(&objects, (Thing*)b);
 
 	while (!WindowShouldClose())
 	{
@@ -44,6 +42,7 @@ int main()
 				5);					// radius
 
 			addThing(&objects, (Thing*)e);
+			//addThing(&enemys, (Thing*)e);
 		}
 
 		if (IsKeyDown(KEY_SPACE)) {
@@ -55,6 +54,7 @@ int main()
 				p->radius / 2);
 
 			addThing(&objects, (Thing*)b);
+			//addThing(&bullets, (Thing*)b);
 		}
 
 		BeginDrawing();
@@ -66,8 +66,12 @@ int main()
 			}
 		EndDrawing();
 	}
-	
+
+	// free allocated memory
 	deleteThingArray(&objects);
+	//deleteThingArray(&bullets);
+	//deleteThingArray(&enemys);
+
 	CloseWindow();
 }
 

@@ -2,8 +2,10 @@
 #include "include.h"
 
 Enemy* initEnemy(
-	float x, float y, 
-	float xspd, float yspd, 
+	float x, 
+	float y, 
+	float xspd, 
+	float yspd, 
 	float radius){
 
 	Enemy* a = malloc(sizeof(Enemy));
@@ -20,7 +22,6 @@ Enemy* initEnemy(
 
 	return a;
 }
-
 
 void updateEnemy(Enemy* e) {
 
@@ -45,7 +46,6 @@ void updateEnemy(Enemy* e) {
 }
 
 void renderEnemy(Enemy* e) {
-
 DrawCircle(
 		e->x, 
 		e->y, 

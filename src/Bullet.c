@@ -15,10 +15,10 @@ Bullet* initBullet(
 	a->xspd = xspd;
 	a->yspd = yspd;
 	a->radius = radius;
-	a->c = WHITE;
-
 	a->render = renderBullet;
 	a->update = updateBullet;
+
+	a->c = WHITE;
 
 	return a;
 }
@@ -47,7 +47,6 @@ void updateBullet(Bullet* b) {
 }
 
 void renderBullet(Bullet* b) {
-
 	DrawCircle(
 		b->x, 
 		b->y, 

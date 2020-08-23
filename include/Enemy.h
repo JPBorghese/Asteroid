@@ -23,8 +23,8 @@ typedef struct Enemy Enemy;
 Enemy* initEnemy(
 	float x,
 	float y,
-	float spdx,
-	float spdy,
+	float xspd,
+	float yspd,
 	float radius);
 
 void renderEnemy(Enemy*);
